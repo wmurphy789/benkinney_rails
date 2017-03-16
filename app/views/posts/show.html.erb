@@ -1,0 +1,17 @@
+<div class="border-bottom">
+  <div class="ml-1">
+    <h4><%= @post.title %></h4>
+    <p><%= @post.body %></p>
+    <i><%= @post.user.first_name %> <%= @post.user.last_name %> - Created on: <%= @post.created_at.to_time.strftime('%B %e, %G') %></i> 
+  </div>
+</div>
+
+<div class="row mt-1">
+  <div class="col-sm-6">
+    <h3 class="d-inline">Comments</h3>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%= link_to "New Comment", post_create_comment_path(@post), remote: true, class: "btn btn-primary" %>
+  </div>
+</div>
+<%= render 'comments' %>

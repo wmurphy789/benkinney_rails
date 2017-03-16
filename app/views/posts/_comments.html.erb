@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.body %> </br>
+        <i><%= comment.user.first_name %> <%= comment.user.last_name %> on <%= comment.created_at.to_time.strftime('%B %e, %G') %></i>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">
+  <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+</div>
+<%= link_to 'Back', posts_path %>

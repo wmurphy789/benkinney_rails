@@ -1,0 +1,28 @@
+<%= form_for @post, html: {:class => 'form-horizontal ng-pristine ng-valid'}, remote: true do |f| %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="spaced-input col-xs-12">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="spaced-input col-xs-12">
+        <%= f.label :body %>
+        <%= f.text_area :body, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <%= f.hidden_field :user_id, :value => @user.id %>
+
+      <div class="form-group">
+        <div class="col-md-4">
+          <%= link_to 'Back', posts_path, class: 'btn btn-white btn-sm' %>
+          </div>
+          <div class="col-md-4 col-md-offset-4 text-right">
+          <%= f.submit 'Save', class: 'btn btn-primary btn-md', data: { disable_with: "Please wait..." } %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

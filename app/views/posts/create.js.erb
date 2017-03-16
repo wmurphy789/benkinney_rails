@@ -1,0 +1,6 @@
+<% if @posts && @post.errors.any? %>
+	toastr.error("<%= @post.errors.full_messages.to_sentence  %>");
+<% else %>
+	// $("#main_target").html("<%= escape_javascript(render 'index') %>");
+	window.location = "<%= escape_javascript(posts_path) %>";
+<% end %>

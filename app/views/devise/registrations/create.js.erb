@@ -1,0 +1,5 @@
+<% if devise_error_messages! != "" %>
+	toastr.error("<%= escape_javascript(devise_error_messages!)  %>");
+<% else %>
+	window.location = "<%= escape_javascript(posts_path) %>";
+<% end %>

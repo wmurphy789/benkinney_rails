@@ -1,0 +1,34 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.center {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	float: inherit !important;
+}
+
+.spaced-input {
+	margin-bottom: 0.75em;
+}
+
+.border-bottom {
+	border-bottom: 1px solid grey;
+}
+
+.row {
+	margin-right: 0px !important
+}
+
+.col-sm-12 {
+	padding-right: 0px !important;
+}
+
+.vertical-center-signup {
+	position: relative;
+  	transform: translateY(20%);
+}
+
+.vertical-center-login {
+	position: relative;
+  	transform: translateY(50%);
+}

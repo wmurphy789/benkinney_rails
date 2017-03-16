@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messageapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="ibox">
+      <div class="ibox-content">
+		<div id="main_target" class="wrapper wrapper-content"><%= yield %></div>
+		<% if user_signed_in? %>
+			<%= render 'layouts/footer' %>
+		<% end %>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+<% unless flash.empty? %>
+     <script type="text/javascript">
+          <% flash.each do |f| %>
+	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+	     	 toastr['<%= type %>']('<%= f[1] %>');
+	   <% end %>
+     </script>
+<% end %>

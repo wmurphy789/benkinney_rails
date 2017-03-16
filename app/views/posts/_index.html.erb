@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><b><%= post.title %></b> by <%= post.user.first_name %> <%= post.user.last_name %></td>
+        <td class="text-right">
+          <%= link_to '<i class="fa fa-eye"></i> Show'.html_safe, post_path(post), class: 'btn btn-sm btn-success' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="text-center">
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
